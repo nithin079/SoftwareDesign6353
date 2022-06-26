@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-header">
+        <h2>Add Quote</h2>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="card-body">
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label>Gallons Requested</label>
+                    <input type="text" formControlName="gallonsRequested" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.gallonsRequested.errors }" />
+                </div>
+                <div class="form-group col-4">
+                    <label>Delivery Date</label>
+                    <input type="date" formControlName="deliveryDate" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.deliveryDate.errors }" />
+                </div>
+                <div class="form-group col-2">
+                    <label>Suggested Price</label>
+                    <input type="number" formControlName="suggestedPrice" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.suggestedPrice.errors }" />
+                </div>
+                <div class="form-group col-2">
+                    <label>Total Amount Due</label>
+                    <input type="number" formControlName="totalAmountDue" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.totalAmountDue.errors }" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Delivery Address</label>
+                    <textarea type="text" formControlName="deliveryAddress" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.deliveryAddress.errors }"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" [disabled]="loading" class="btn btn-primary mr-2">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Save
+            </button>
+            <a routerLink="../" href="" class="btn btn-danger">Cancel</a>
+        </div>
+    </form>
+</div>

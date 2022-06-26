@@ -56,6 +56,14 @@ export class AccountService {
         return this.http.post(`${baseUrl}/register`, account);
     }
 
+    verifyEmail(token: string) {
+        return this.http.post(`${baseUrl}/verify-email`, { token });
+    }
+
+    forgotPassword(email: string) {
+        return this.http.post(`${baseUrl}/forgot-password`, { email });
+    }
+
     validateResetToken(token: string) {
         return this.http.post(`${baseUrl}/validate-reset-token`, { token });
     }
